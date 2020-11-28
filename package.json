@@ -1,6 +1,6 @@
 {
   "name": "ts-jobserver-simple",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "description": "Simple/Single-job TypeScript job-server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

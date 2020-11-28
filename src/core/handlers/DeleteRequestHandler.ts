@@ -18,9 +18,9 @@ export class DeleteRequestHandler  extends AbstractRequestHandler {
             try {
                 let stat = await fstat(file);
                 if (stat.isDirectory()) {
-                    await rm(file);
-                } else if (stat.isFile()) {
                     await rmdir(file);
+                } else if (stat.isFile()) {
+                    await rm(file);
                 }
             } catch (e) {
                 this.logger.error("remove-files", e);
