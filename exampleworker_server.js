@@ -5,7 +5,11 @@ import {ExampleWorker} from "./src/ExampleWorker";
 const logger = new Logger({name: "example-job-server"});
 try {
     logger.info("starting");
-    const jobServer = new Server({ logger: logger });
+    const jobServer = new Server({
+        logger: logger,
+        workdir: '/tmp',
+        port: 8080
+    });
     process.on('SIGINT', async () => {
         logger.info("SIGINT received, shutting down.");
         await jobServer.shutdown();
