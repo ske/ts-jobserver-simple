@@ -2,11 +2,12 @@
   "name": "ts-jobserver-simple",
   "version": "0.8.1",
   "description": "Simple/Single-job TypeScript job-server",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ske/ts-jobserver-simple.git"
@@ -19,6 +20,7 @@
     "uuid": "^8.3.1"
   },
   "devDependencies": {
-    "@types/node": "^14.14.9"
+    "@types/node": "^14.14.9",
+    "typescript": "^4.0.5"
   }
 }
