@@ -1,10 +1,15 @@
 {
-  "name": "jobserver-simple",
-  "version": "0.8.0",
-  "description": "",
+  "name": "ts-jobserver-simple",
+  "version": "0.8.1",
+  "description": "Simple/Single-job TypeScript job-server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ske/ts-jobserver-simple.git"
   },
   "author": "bskerlecz@gmail.com",
   "license": "MIT",
