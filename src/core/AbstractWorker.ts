@@ -36,7 +36,7 @@ export abstract class AbstractWorker implements IWorker {
         return this.job.status;
     }
 
-    abstract async do(): Promise<IWorker>;
+    abstract do(): Promise<IWorker>;
     abstract getOutputContentType(): string;
     abstract getInputContentType(): string;
 }

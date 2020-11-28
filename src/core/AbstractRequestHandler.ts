@@ -17,5 +17,5 @@ export abstract class AbstractRequestHandler implements IRequestHandler {
         }
         this.logger = config.logger;
     }
-    abstract async handle(data: IDispatchData, registry: IWorkersAccess): Promise<boolean>;
+    abstract handle(data: IDispatchData, registry: IWorkersAccess): Promise<boolean>;
 }

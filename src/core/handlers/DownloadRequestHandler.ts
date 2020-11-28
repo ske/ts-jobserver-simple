@@ -22,7 +22,7 @@ export class DownloadRequestHandler extends AbstractRequestHandler {
         }
 
         let outputFile = worker.getJob().outputFile;
-        let send = new Promise((resolve, reject) => {
+        let send = new Promise<void>((resolve, reject) => {
             let fstat = statSync(outputFile);
             data.response.statusCode = 200;
             data.response.setHeader('Content-Length', fstat.size);

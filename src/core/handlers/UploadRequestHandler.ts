@@ -17,7 +17,7 @@ export class UploadRequestHandler extends AbstractRequestHandler {
             return true;
         }
 
-        let receive = new Promise((resolve, reject) => {
+        let receive = new Promise<void>((resolve, reject) => {
             let buffer = Buffer.from('');
             data.request
                 .on('data', (chunk) => { buffer = Buffer.concat([buffer, chunk])})
