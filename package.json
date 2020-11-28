@@ -1,10 +1,11 @@
 {
   "name": "ts-jobserver-simple",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Simple/Single-job TypeScript job-server",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "tsc"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
