@@ -14,6 +14,7 @@ import {IConfiguration} from "./IConfiguration";
 import {UploadRequestHandler} from "./handlers/UploadRequestHandler";
 import {parse} from "url";
 import {JobStatus} from "./JobStatus";
+import {AbstractRequestHandler} from "./AbstractRequestHandler";
 
 export class Server implements IWorkersAccess {
 
@@ -34,7 +35,7 @@ export class Server implements IWorkersAccess {
         this.logger = config.logger;
 
         if (config['workdir'] === undefined) {
-            this.config['workdir'] = '/tmp';
+            this.config['workdir'] = AbstractRequestHandler.DEFAULT_WORKDIR;
         }
 
         if (config['port']!==undefined) {
@@ -66,14 +67,6 @@ export class Server implements IWorkersAccess {
         return true;
     }
 
-    registerWorkerType(type: IWorkerConstructor) {
-        this.registeredWorkerType = type;
-    }
-
-    addRequestHandler(path: string, handler: IRequestHandler) {
-        this.handlers[path] = handler;
-    }
-
     addWorker(workerId:string, name:string, file:string) {
         if (this.registeredWorkerType) {
             // Aad the worker
@@ -84,6 +77,14 @@ export class Server implements IWorkersAccess {
                 console.log('worker completed', _worker.getId(), _worker.getJob().name);
             })
         }
+    }
+
+    registerWorkerType(type: IWorkerConstructor) {
+        this.registeredWorkerType = type;
+    }
+
+    addRequestHandler(path: string, handler: IRequestHandler) {
+        this.handlers[path] = handler;
     }
 
     /**

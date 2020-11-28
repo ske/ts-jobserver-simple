@@ -29,7 +29,7 @@ export class UploadRequestHandler extends AbstractRequestHandler {
                         reject("empty request body");
                     } else {
                         const workerId:string = v4();
-                        let workDir = (this.config['workdir'] !== undefined) ? this.config['workdir'] : '/tmp';
+                        let workDir = this.config['workdir'];
                         const fileName:string = [workDir, workerId].join("/");
                         writeFile(fileName, buffer, () => {
                             registry.addWorker(workerId, data.id, fileName);

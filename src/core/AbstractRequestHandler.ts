@@ -5,6 +5,8 @@ import {IConfiguration} from "./IConfiguration";
 import {Logger} from "tslog";
 
 export abstract class AbstractRequestHandler implements IRequestHandler {
+    static DEFAULT_WORKDIR = '/tmp';
+
     protected logger:Logger;
     protected config:IConfiguration;
 

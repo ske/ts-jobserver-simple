@@ -20,7 +20,7 @@ export abstract class AbstractWorker implements IWorker {
             inputFile: inputFile,
             outputFile: inputFile + "_",
             status: JobStatus.New,
-            workDir: ['/tmp', id + '-work'].join("/")
+            workDir: [config['workdir'], id + '-work'].join("/")
         };
     }
 

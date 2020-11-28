@@ -31,11 +31,11 @@ export class ExampleWorker extends AbstractWorker {
     }
 
     getInputContentType(): string {
-        return "application/text";
+        return "text/plain";
     }
 
     getOutputContentType(): string {
-        return "application/text";
+        return "text/plain";
     }
 
 }
