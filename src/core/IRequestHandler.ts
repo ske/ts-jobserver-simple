@@ -7,8 +7,12 @@ export interface IRequestHandler {
     handle(data: IDispatchData, registry: IWorkersAccess): Promise<boolean>;
 }
 
-export function jsonResponse(response: ServerResponse, statusCode: number, data: any) {
+export function jsonResponse(response: ServerResponse, statusCode: number, data?: any) {
     response.statusCode = statusCode;
     response.setHeader('Content-Type', 'application/json');
-    response.end(JSON.stringify(data));
+    if (data===undefined) {
+        response.end();
+    } else {
+        response.end(JSON.stringify(data));
+    }
 }

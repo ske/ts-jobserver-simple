@@ -11,7 +11,8 @@ export class DeleteRequestHandler  extends AbstractRequestHandler {
         const rm = promisify(fs.rm);
         const rmdir = promisify(fs.rmdir);
 
-        for (let file in files) {
+        for (let filesKey in files) {
+            let file = files[filesKey];
             if (file===undefined || file.length==0) {
                 continue;
             }
@@ -40,6 +41,7 @@ export class DeleteRequestHandler  extends AbstractRequestHandler {
         this.logger.info(`cleaning up worker '${data.id}'`, filesToRemove);
         await this.removeFiles(filesToRemove);
         registry.removeWorker(data.id);
+        jsonResponse(data.response, 204);
 
         return true;
     }
